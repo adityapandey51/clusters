@@ -5,7 +5,7 @@ import express from "express"
 dotenv.config()
 
 
-const totalCpus=os.cpus().length
+const totalCpus: number=os.cpus().length
 
 
 if(cluster.isPrimary){
@@ -15,7 +15,7 @@ if(cluster.isPrimary){
 }else{
     const app=express();
 
-    app.get("/",(req,res)=>{
+    app.get("/",(req: any,res: any)=>{
         res.json({message:`hello world ${process.pid}`})
     })
     app.listen(process.env.PORT,()=>{
